@@ -43,12 +43,11 @@ void Parser::factor(Node* node) {
             node->deep_copy(recur_factor);
             return;
         }
+        
         Token zero_tok = Token(TT_INT, "0");
         Node* zero_node = new Node(zero_tok);
-
         recur_factor = new Node(zero_node, tok, recur_factor);
         node->deep_copy(recur_factor);
-
         return;
     }
     else if (tok.get_token_type() == TT_INT) {
@@ -57,13 +56,10 @@ void Parser::factor(Node* node) {
         return;
     }
     else if (tok.get_token_type() == TT_LPAREN) {
-
         std::ignore = advance();
-
         Node* left = new Node();
-
         expression(left);
-
+        
         if(left->get_error()) {
             node->deep_copy(left);
             return;

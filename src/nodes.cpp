@@ -29,7 +29,7 @@ void Node::print_tree() const {
         std::cout << "]";
     }
 
-    std::cout << (token_object).get_token_value();;
+    std::cout << (token_object).get_token_value();
 
     if (right_node){
         std::cout << "[";

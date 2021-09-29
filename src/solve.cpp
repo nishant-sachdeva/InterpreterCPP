@@ -19,11 +19,11 @@ std::string Solve::get_error_name() const {
 }
 
 int Solve::evaluate(Node* node) {
-    if (node->left_node == NULL and node->right_node == NULL) {
+    if (node->left_node == NULL && node->right_node == NULL) {
         return std::stoi(node->token_object.get_token_value());
     }
 
-    else if (node->left_node and node->right_node) {
+    else if (node->left_node && node->right_node) {
         int temp1 = evaluate(node->left_node);
 
         if(node->left_node->get_error()) {
@@ -40,16 +40,16 @@ int Solve::evaluate(Node* node) {
         }
 
         std::string operand = node->token_object.get_token_value();
-        if (operand == "+") {
+        if(operand == "+") {
             return temp1 + temp2;
         }
-        if (operand == "-") {
+        if(operand == "-") {
             return temp1 - temp2;
         }
-        if (operand == "*") {
+        if(operand == "*") {
             return temp1 * temp2;
         }
-        if (operand == "/") {
+        if(operand == "/") {
             if(temp2 == 0) {
                 this->set_error(true);
                 this->set_error_name("!!! Division by 0 error");

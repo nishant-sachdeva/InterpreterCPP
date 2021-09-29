@@ -17,7 +17,6 @@ public:
     void term(Node* node);
     void expression(Node* node);
 
-
 private:
     std::vector<Token> v_tokens;
     Token current_token;

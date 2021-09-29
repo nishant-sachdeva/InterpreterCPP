@@ -9,14 +9,14 @@
 #include <string>
 #include <exception>
 
-Lexer::Lexer() : error(false) ,answer(0){}
+Lexer::Lexer() : error(false) ,answer(0) {}
 
-void Lexer::list_tokens() const{
+void Lexer::list_tokens() const {
     for(const Token& tok_object : tokens)
         tok_object.disp();
     return;
 }
-std::vector<Token> Lexer::get_tokens() const {
+std::vector<Token>Lexer::get_tokens() const {
     return tokens;
 }
 
@@ -24,8 +24,9 @@ bool Lexer::get_error() const {
     return error;
 }
 
-void Lexer::set_answer(int answer) {
-    answer = answer;
+void Lexer::set_answer(int answer_obj) {
+    answer = answer_obj;
+    return;
 }
 
 int Lexer::get_answer() const {
@@ -36,8 +37,9 @@ std::string Lexer::get_error_name() const {
     return error_name;
 }
 
-void Lexer::set_error_name(std::string error_name) {
-    error_name = error_name;
+void Lexer::set_error_name(std::string error_name_obj) {
+    error_name = error_name_obj;
+    return;
 }
 
 void Lexer::lex_command(std::string command) {

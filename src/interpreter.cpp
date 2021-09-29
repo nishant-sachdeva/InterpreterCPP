@@ -10,12 +10,12 @@
 
 void Interpreter::set_command(std::string command_string) {
     command = command_string;
+    return;
 }
 
 Output Interpreter::run_command() {
     Output output_object;
     Lexer lexer_object;
-
     lexer_object.lex_command(command);
     
     if(lexer_object.get_error()) {
@@ -25,7 +25,6 @@ Output Interpreter::run_command() {
     }
     
     Parser parse_object = Parser(lexer_object.get_tokens());
-
     Node *ast = new Node();
     parse_object.parse_tokens(ast);
 
@@ -36,7 +35,6 @@ Output Interpreter::run_command() {
     }
 
     Solve *answer = new Solve();
-
     int result = answer->evaluate(ast);
 
     if(answer->get_error()) {

@@ -6,7 +6,7 @@
 #include <string>
 
 
-int main(){
+int main() {
     std::string command;
     
     while(true) {
