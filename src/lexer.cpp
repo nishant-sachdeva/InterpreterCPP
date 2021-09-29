@@ -58,16 +58,8 @@ void Lexer::lex_command(std::string command) {
             case ')' : tokens.push_back(Token(TT_RPAREN, ")")); break;
             default:
                 std::size_t num_end;
-                try{
+                try {
                     int number = std::stoi(&command.c_str()[pos], &num_end);
-
-                    if (number >= 10) {
-                        std::string num_string = std::to_string(number);
-                        error_name = "Read : '" + num_string + "' Expected : Single digit numbers";
-                        error = true;
-                        return;
-                    }
-
                     tokens.push_back(Token(TT_INT, std::to_string(number)));
                     pos += num_end-1;
                 }
